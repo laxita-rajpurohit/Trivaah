@@ -1,0 +1,25 @@
+{
+  "name": "trivaah",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laxita-rajpurohit/Trivaah.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/laxita-rajpurohit/Trivaah/issues"
+  },
+  "homepage": "https://github.com/laxita-rajpurohit/Trivaah#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
