@@ -11,10 +11,37 @@ const Bar = styled.nav`
   position: relative;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0;
   margin-bottom: 20px;
+  margin-bottom: 0;
+
+  /* Remove solid borders */
+  border: none;
+
+  /* Top black shadow */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* thickness of the shadow */
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0)); /* fading black */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* subtle shadow */
+  }
+
+  /* Bottom black shadow */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* thickness */
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.4)); /* fading black */
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.2); /* subtle shadow */
+  }
 `;
+
 
 const MenuItem = styled.div`
   position: relative;
@@ -95,8 +122,6 @@ const data = [
           "Blue Sarees",
           "Wine Sarees"
         ]
-      },
-      // }
       }
     ]
   },
@@ -129,7 +154,6 @@ const data = [
           "Yellow Lehengas",
         ],
       },
-      // {
     ],
   },
 

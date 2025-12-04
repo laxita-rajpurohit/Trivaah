@@ -1,11 +1,6 @@
 // src/component/HeroSlider/HeroSlider.styled.ts
 import styled from "styled-components";
 
-export const HeroSection = styled.section`
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-`;
 
 export const SliderWrapper = styled.div`
   .swiper {
@@ -30,6 +25,13 @@ export const SliderWrapper = styled.div`
   }
 `;
 
+
+export const HeroSection = styled.section`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+`;
+
 export const SlideWrapper = styled.article`
   position: relative;
   width: 100%;
@@ -37,7 +39,7 @@ export const SlideWrapper = styled.article`
 
 export const SlideImage = styled.img`
   width: 100%;
-  height: auto;
+  height: auto;        // keep this
   display: block;
   object-fit: cover;
 `;

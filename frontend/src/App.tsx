@@ -6,6 +6,7 @@ import CategoriesBar from './component/CategoriesBar';
 import { HeroSlider, type HeroSlide } from './component/HeroSlider';
 
 
+
 interface Saree {
   id: number;
   name: string;
@@ -39,6 +40,16 @@ function App() {
     {
       id: "salwar-under-2499",
       desktopImage: "/hero/hero1.jpeg",
+      mobileImage: "/hero/hero1.jpeg",
+      title: "Test hero",
+      subtitle: "SALWAR SUITS\nUNDER ₹2499",
+      badgeText: "",
+      ctaLabel: "SHOP NOW",
+      ctaLink: "#",
+    },
+    {
+      id: "hero-2",
+      desktopImage: "/hero/hero2.jpeg",
       mobileImage: "/hero/hero2.jpeg",
       title: "Ready-to-wear. Ready to wow.",
       subtitle: "SALWAR SUITS\nUNDER ₹2499", // we’ll split this into 2 lines via CSS
@@ -48,15 +59,18 @@ function App() {
     },
   ];
   
+  
   return (
-    <>
+    <div>
     <HeaderAnnouncement />
     <Navbar />
-    <div>
-      <CategoriesBar/>
-      <HeroSlider slides={slides} autoplayMs={5000} />
-      </div>
-    </>
+
+    {/* nav bar with black line */}
+    <CategoriesBar />
+
+    {/* hero occupies full width under the menu */}
+    <HeroSlider slides={slides} autoplayMs={5000} />
+  </div>
   );
 }
 

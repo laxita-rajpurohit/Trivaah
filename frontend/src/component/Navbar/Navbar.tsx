@@ -16,11 +16,6 @@ export default function Navbar() {
   return (
     <NavWrapper>
       <LeftMenu>
-        {/* <NavButton label="WOMEN" active />
-        <NavButton label="MEN" />
-        <NavButton label="BRIDAL" />
-        <NavButton label="LUXE" />
-        <Icon src={store} /> */}
       </LeftMenu>
       <div style={{ flex: 0, display: "flex", justifyContent: "center" }}>
          <img src={logo} alt="Trivaah logo" width={180} height={'auto'} style={{maxWidth:'190px',minWidth:'144px',margin:'0 auto',height:'70px'}}/>
