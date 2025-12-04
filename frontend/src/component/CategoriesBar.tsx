@@ -1,26 +1,28 @@
 import styled from "styled-components";
 import MegaDropdown from "./Dropdown";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Bar = styled.nav`
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 42px;
-  // padding: 18px 0;
   background: #fff;
-  position: relative; /* important: dropdown will position against this */
+  position: relative;
   align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 20px;
 `;
 
-/* wrapper for menu items so we can keep ::after underline absolute */
 const MenuItem = styled.div`
-  position: relative; /* for underline only */
+  position: relative;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   cursor: pointer;
-  padding: 6px 4px;
+  // padding: 6px 4px;
 
   &::after {
     content: "";
@@ -40,7 +42,6 @@ const MenuItem = styled.div`
   }
 `;
 
-/* invisible hit area to keep dropdown visible when mouse moves between menu and dropdown */
 const HoverArea = styled.div`
   position: absolute;
   left: 0;
@@ -50,11 +51,8 @@ const HoverArea = styled.div`
   pointer-events: none;
 `;
 
-/* ----------------------- MENU DATA ----------------------- */
-const data: {
-  label: string;
-  dropdown?: { heading: string; items: string[] }[];
-}[] = [
+
+const data = [
   { label: "Sale" },
   { label: "Bestsellers" },
   { label: "New Arrivals" },
@@ -62,18 +60,6 @@ const data: {
   {
     label: "Sarees",
     dropdown: [
-      // {
-      //   heading: "By Occasion",
-      //   items: [
-      //     "Summer Sarees",
-      //     "Wedding Sarees",
-      //     "Engagement Sarees",
-      //     "Reception Sarees",
-      //     "Haldi Sarees",
-      //     "Festive Sarees",
-      //     "Party Wear Sarees"
-      //   ]
-      // },
       {
         heading: "By Type",
         items: [
@@ -110,32 +96,14 @@ const data: {
           "Wine Sarees"
         ]
       },
-      // {
-      //   heading: "",
-      //   items: [
-      //     "Sarees Under 5000",
-      //     "Bestsellers",
-      //     "New Arrival Sarees",
-      //     "Blouses"
-      //   ]
       // }
+      }
     ]
-  }
-,  
+  },
 
   {
     label: "Lehengas",
     dropdown: [
-      // {
-      //   heading: "By Occasion",
-      //   items: [
-      //     "Bridal Lehengas",
-      //     "Reception Lehengas",
-      //     "Haldi Lehengas",
-      //     "Bridesmaid Lehengas",
-      //     "Mehendi Lehengas",
-      //   ],
-      // },
       {
         heading: "By Type",
         items: [
@@ -162,15 +130,9 @@ const data: {
         ],
       },
       // {
-      //   heading: " ",
-      //   items: [
-      //     "Lehengas Under 10000",
-      //     "New Arrivals",
-      //   ],
-      // },
     ],
   },
-  
+
   { label: "Dress Materials" },
   { label: "Salwar Suits" },
 
@@ -187,40 +149,51 @@ const data: {
           "Haldi Sarees",
           "Festive Sarees",
           "Party Wear Sarees",
-        ],
-      },
-    ],
-  },
+        ]
+      }
+    ]
+  }
 ];
-
 
 export default function CategoriesBar() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [dropdownX, setDropdownX] = useState<number>(0);
+  const barRef = useRef<HTMLDivElement | null>(null);
+
   const hoveredItem = data.find((d) => d.label === hovered);
 
   return (
     <Bar
-      onMouseLeave={() => {
-        setHovered(null); // hide dropdown when leaving bar area
-      }}
+      ref={barRef}
+      onMouseLeave={() => setHovered(null)}
     >
       {data.map((item) => (
         <MenuItem
           key={item.label}
-          onMouseEnter={() => {
-            // show dropdown only if present
-            if (item.dropdown) setHovered(item.label);
-            else setHovered(null);
+          onMouseEnter={(e) => {
+            if (item.dropdown) {
+              const rect = e.currentTarget.getBoundingClientRect();
+              const barRect = barRef.current!.getBoundingClientRect();
+
+              const centerX = rect.left - barRect.left + rect.width / 2;
+
+              setDropdownX(centerX);
+              setHovered(item.label);
+            } else {
+              setHovered(null);
+            }
           }}
         >
           {item.label}
         </MenuItem>
       ))}
 
-      {/* The dropdown is rendered once and centered relative to `Bar` */}
-      <MegaDropdown columns={hoveredItem?.dropdown ?? null} visible={!!hovered} />
+      <MegaDropdown
+        columns={hoveredItem?.dropdown ?? null}
+        visible={!!hovered}
+        x={dropdownX}
+      />
 
-      {/* optional invisible hover area keeps mouse flow stable (pointer-events none) */}
       <HoverArea />
     </Bar>
   );

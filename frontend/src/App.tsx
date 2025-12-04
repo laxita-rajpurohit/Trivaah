@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import logo from './assets/trivaah-logo.svg';
 import HeaderAnnouncement from './component/HeaderAnnouncement';
-import { Navbar, NavButton } from './component/Navbar';
+import { Navbar} from './component/Navbar';
 import CategoriesBar from './component/CategoriesBar';
+import { HeroSlider, type HeroSlide } from './component/HeroSlider';
 
 
 interface Saree {
@@ -34,13 +34,27 @@ function App() {
 
   if (loading) return <div style={{ padding: 24 }}>Loading Trivaah sarees...</div>;
   if (error) return <div style={{ padding: 24, color: 'red' }}>{error}</div>;
-
+  // temporary static hero slides (replace with real images in /public/hero)
+  const slides: HeroSlide[] = [
+    {
+      id: "salwar-under-2499",
+      desktopImage: "/hero/hero1.jpeg",
+      mobileImage: "/hero/hero2.jpeg",
+      title: "Ready-to-wear. Ready to wow.",
+      subtitle: "SALWAR SUITS\nUNDER ₹2499", // we’ll split this into 2 lines via CSS
+      badgeText: "",
+      ctaLabel: "SHOP NOW",
+      ctaLink: "#",
+    },
+  ];
+  
   return (
     <>
     <HeaderAnnouncement />
     <Navbar />
     <div>
       <CategoriesBar/>
+      <HeroSlider slides={slides} autoplayMs={5000} />
       </div>
     </>
   );
