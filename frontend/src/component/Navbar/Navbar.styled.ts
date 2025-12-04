@@ -3,14 +3,12 @@ import styled from "styled-components";
 
 export const NavWrapper = styled.nav`
   position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  // width: 100%;
-  max-width: 100vw;        /* never wider than viewport */
+  top: 30px;           /* same as BarWrapper height */
+  z-index: 9000;       /* below announcement, above content */
+  max-width: 100vw;
   overflow-x: hidden;
 
-  padding: 15px 30px 5px 30px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +20,7 @@ export const NavWrapper = styled.nav`
     padding: 10px 16px;
   }
 `;
+
 
 
 export const LeftMenu = styled.div`

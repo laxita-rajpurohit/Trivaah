@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay} from "swiper/modules";
 import "swiper/css";
 import logo from "../assets/white-logo.svg";
 import truck from "../assets/icons/truck.svg";
@@ -13,6 +13,7 @@ const BarWrapper = styled.div`
   color: #fff;
   position: sticky;
   top: 0;
+  height: 30px;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -55,15 +56,6 @@ const SlideBox = styled.div`
   .swiper-slide-active & {
     opacity: 1;
     transform: translateX(0);
-  }
-`;
-
-
-// when the slide is active, animate its SlideBox
-const StyledSwiperSlide = styled(SwiperSlide)`
-  &.swiper-slide-active ${SlideBox} {
-    opacity: 1;
-    transform: translateY(0);
   }
 `;
 
