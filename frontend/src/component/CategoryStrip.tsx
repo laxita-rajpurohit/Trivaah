@@ -34,56 +34,36 @@ const Item = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; /* Added for pseudo-elements */
 `;
 
-// const ImageWrapper = styled.div`
-//   width: 190px;
-//   height: 360px;
-//   border-radius: 999px;
-//   overflow: hidden;
-//   background: #f7f1e9;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   transition: all 0.2s ease-out;
-//   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-
-//   ${Item}:hover & {
-//     transform: translateY(-4px);
-//     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-//   }
-// `;
-
-// const Image = styled.img`
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// `;
 const ImageWrapper = styled.div`
-  width: 180px;              /* try 170–200px until it visually matches */
-  aspect-ratio: 2 / 4;       /* width : height => tall oval; adjust to taste */
-  border-radius: 50%;        /* perfect ellipse based on width/height */
+  width: 180px;
+  aspect-ratio: 2 / 4;
   overflow: hidden;
   background: #f7f1e9;
   display: flex;
   align-items: center;
   justify-content: center;
+//   border-radius: 24px; /* or 999px for oval */
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+
+  /* Shadow on all sides */
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.25);
 
   ${Item}:hover & {
     transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
   }
 `;
+
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* fills the ellipse without distortion */
-  object-position: top center; /* keeps model’s head higher; tweak if needed */
+  object-fit: cover;
+  object-position: top center;
 `;
-
 
 const Label = styled.span`
   margin-top: 12px;

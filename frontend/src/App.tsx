@@ -5,6 +5,7 @@ import { Navbar} from './component/Navbar';
 import CategoriesBar from './component/CategoriesBar';
 import { HeroSlider, type HeroSlide } from './component/HeroSlider';
 import { CategoryStrip } from './component/CategoryStrip';
+import { CircularHeroCarousel, type Slide } from './component/HeroCarousel';
 
 
 
@@ -70,7 +71,13 @@ function App() {
     }
   ];
   
-  
+  const HeroCarouselSlides: Slide[] = [
+    { id: "1", videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" },
+    { id: "2", videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" },
+    { id: "3", videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" },
+    { id: "4", videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" },
+    { id: "5", videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" },
+  ];
   return (
     <div>
     <HeaderAnnouncement />
@@ -83,19 +90,24 @@ function App() {
     <HeroSlider slides={slides} autoplayMs={5000} />
     <CategoryStrip
   items={[
-    { id: "coord", label: "Co-ord Sets", imageSrc: "/images/coord.jpg" },
-    { id: "dresses", label: "Dresses", imageSrc: "/images/dresses.jpg" },
-    { id: "jumpsuits", label: "Jumpsuits", imageSrc: "/images/jumpsuits.jpg" },
-    { id: "suit-sets", label: "Suit Sets", imageSrc: "/images/suit-sets.jpg" },
-    { id: "bottoms", label: "Bottoms", imageSrc: "/images/bottoms.jpg" },
-    { id: "shirts", label: "Shirts", imageSrc: "/images/shirts.jpg" },
-    { id: "sarees", label: "Sarees", imageSrc: "/images/sarees.jpg" },
-    { id: "kaftans", label: "Kaftans", imageSrc: "/images/kaftans.jpg" },
+    { id: "coord", label: "Co-ord Sets", imageSrc: "https://picsum.photos/300/600?random=1" },
+    { id: "dresses", label: "Dresses", imageSrc: "https://picsum.photos/300/600?random=2" },
+    { id: "jumpsuits", label: "Jumpsuits", imageSrc: "https://picsum.photos/300/600?random=3" },
+    { id: "suit-sets", label: "Suit Sets", imageSrc: "https://picsum.photos/300/600?random=4" },
+    { id: "bottoms", label: "Bottoms", imageSrc: "https://picsum.photos/300/600?random=5" },
+    { id: "shirts", label: "Shirts", imageSrc: "https://picsum.photos/300/600?random=6" },
+    { id: "sarees", label: "Sarees", imageSrc: "https://picsum.photos/300/600?random=7" },
+    { id: "kaftans", label: "Kaftans", imageSrc: "https://picsum.photos/300/600?random=8" },
   ]}
+  
+  
   onSelect={id => console.log(id)}
 />
+<div style={{textAlign:'center',fontSize:'28px',fontWeight:'bold',marginTop:'20px',fontFamily: "Mahalika"}}>The Trivaah Edits</div>
+<CircularHeroCarousel items={HeroCarouselSlides} autoPlayInterval={2800} />
 
   </div>
+
   );
 }
 
