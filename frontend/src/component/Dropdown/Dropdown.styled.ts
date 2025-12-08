@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div<{ visible?: boolean; x?: number }>`
+export const Wrapper = styled.div<{ visible?: boolean; x?: number }>`
   position: absolute;
   top: 100%;
   left: ${({ x }) => (x ? `${x}px` : "50%")}; 
@@ -9,7 +9,7 @@ const Wrapper = styled.div<{ visible?: boolean; x?: number }>`
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 999;
 
   display: flex;
@@ -39,14 +39,13 @@ const Wrapper = styled.div<{ visible?: boolean; x?: number }>`
     `}
 `;
 
-const Column = styled.div`
+export const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-//   min-width: 180px;
 `;
 
-const Heading = styled.h4`
+export const Heading = styled.h4`
   font-size: 13px;
   letter-spacing: 0.16em;
   color: #202020;
@@ -54,7 +53,7 @@ const Heading = styled.h4`
   margin: 0 0 8px 0;
 `;
 
-const Item = styled.a`
+export const Item = styled.a`
   font-size: 12px;
   color: #202020;
   text-decoration: none;
@@ -63,33 +62,7 @@ const Item = styled.a`
 
   &:hover {
     opacity: 0.65;
-    color:red;
+    color: red;
   }
 `;
 
-export default function MegaDropdown({
-  columns,
-  visible = false,
-  x,
-}: {
-  columns: { heading: string; items: string[] }[] | null;
-  visible?: boolean;
-  x?: number; // <-- NEW
-}) {
-  if (!columns) return null;
-
-  return (
-    <Wrapper visible={visible} x={x}>
-      <div className="content-box">
-        {columns.map((col) => (
-          <Column key={col.heading}>
-            <Heading>{col.heading}</Heading>
-            {col.items.map((name) => (
-              <Item key={name}>{name}</Item>
-            ))}
-          </Column>
-        ))}
-      </div>
-    </Wrapper>
-  );
-}

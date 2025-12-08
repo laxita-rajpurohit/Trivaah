@@ -1,0 +1,2 @@
+export { InstantSareeBanner } from "./BannerSection";
+

@@ -1,0 +1,2 @@
+export { CategoryStrip } from "./CategoryStrip";
+
