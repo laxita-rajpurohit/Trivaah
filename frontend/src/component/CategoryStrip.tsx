@@ -17,7 +17,7 @@ const Strip = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   gap: 32px;
-  padding: 24px 40px;
+  padding:  60px 40px 50px 40px;
   overflow-x: auto;
 
   /* hide scrollbar on WebKit (optional) */
