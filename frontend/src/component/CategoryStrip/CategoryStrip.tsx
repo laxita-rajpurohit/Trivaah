@@ -11,7 +11,7 @@ type Category = {
 type CategoryStripProps = {
   items: Category[];
   onSelect?: (id: string) => void;
-  className: string
+  className?: string
 };
 
 export const CategoryStrip: React.FC<CategoryStripProps> = ({ items, onSelect ,className}) => {

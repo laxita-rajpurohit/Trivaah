@@ -5,7 +5,6 @@ export const NavWrapper = styled.nav`
   position: sticky;
   top: 30px;
 z-index: 1000;
-  // width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
   padding: 10px 20px;

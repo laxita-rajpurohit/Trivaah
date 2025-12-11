@@ -58,7 +58,7 @@ export const ImageWrapper = styled.div`
     width: 75px;
     aspect-ratio: 2 / 3;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
-    &.bestseller{
+    & .bestseller{
     width:105px
     }
   }
