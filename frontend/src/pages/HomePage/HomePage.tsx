@@ -38,6 +38,7 @@ export const HomePage = () => {
       <CategoryStrip
         items={categoryStripItems}
         onSelect={(id: string) => console.log(id)}
+        className="bestseller"
       />
       <SectionTitleWithMargin>The Trivaah Edits</SectionTitleWithMargin>
       <CircularHeroCarousel items={heroCarouselSlides} autoPlayInterval={2800} />
@@ -59,6 +60,7 @@ export const HomePage = () => {
       <CategoryStrip
         items={bestsellersItems}
         onSelect={(id: string) => console.log(id)}
+        className="bestseller"
       />
       <InstantSareeBanner
         media={instantSareeBannerMedia}

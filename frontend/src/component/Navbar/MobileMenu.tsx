@@ -3,6 +3,8 @@ import type { FC } from "react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { navCategories, type CategoryItem } from "../../data/navCategories";
+import { CategoryStrip } from "../CategoryStrip";
+import { categoryStripItems } from "../../data/homePageData";
 
 type Props = {
   open: boolean;
@@ -17,6 +19,8 @@ const Backdrop = styled.div<{ open: boolean }>`
   pointer-events: ${({ open }) => (open ? "auto" : "none")};
   transition: opacity 0.25s ease;
   z-index: 1999;
+   backdrop-filter: blur(6px);       /* <- blur effect */
+  -webkit-backdrop-filter: blur(6px);
 `;
 
 const DrawerWrapper = styled.div<{ open: boolean }>`
@@ -47,12 +51,6 @@ const DrawerHeader = styled.div`
 const CloseIcon = styled.div`
   font-size: 24px;
   cursor: pointer;
-`;
-
-const DrawerScroll = styled.div`
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px 18px 24px;
 `;
 
 const TopLevelItem = styled.button<{ open?: boolean }>`
@@ -100,6 +98,13 @@ const SubItem = styled.button`
   color: #333;
 `;
 
+const DrawerScroll = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 18px 24px;
+`;
+
+
 const MobileMenu: FC<Props> = ({ open, onClose }) => {
   const [openLabel, setOpenLabel] = useState<string | null>(null);
 
@@ -131,6 +136,26 @@ const MobileMenu: FC<Props> = ({ open, onClose }) => {
         </DrawerHeader>
 
         <DrawerScroll>
+           {/* top image strip */}
+  <CategoryStrip
+    items={categoryStripItems}
+    onSelect={(id) => {
+      // optional: open corresponding section when a card is tapped
+      const match = navCategories.find((c) =>
+        c.label.toLowerCase().includes(id.toLowerCase())
+      );
+      if (match) {
+        if (match.dropdown) {
+          setOpenLabel(match.label);
+        }
+        // you can also scroll to that section later if needed
+      }
+    }}
+  />
+
+  {/* separator if you want */}
+  <hr style={{ border: "none", borderTop: "1px solid #f1f1f1", margin: "8px 0 12px" }} />
+
           {navCategories.map((item) => {
             const isOpen = !!item.dropdown && openLabel === item.label;
             return (

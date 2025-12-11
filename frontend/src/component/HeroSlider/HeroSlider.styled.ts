@@ -7,6 +7,7 @@ export const HeroSection = styled.section`
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
+
 `;
 
 export const SliderWrapper = styled.div`
@@ -26,6 +27,9 @@ export const SliderWrapper = styled.div`
 
   .swiper-slide {
     width: 100% !important;
+  }
+      @media (max-width: 768px) {
+margin-bottom: 45px;
   }
 `;
 

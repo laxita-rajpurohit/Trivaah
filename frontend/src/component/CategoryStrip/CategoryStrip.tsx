@@ -5,19 +5,21 @@ type Category = {
   id: string;
   label: string;
   imageSrc: string;
+
 };
 
 type CategoryStripProps = {
   items: Category[];
   onSelect?: (id: string) => void;
+  className: string
 };
 
-export const CategoryStrip: React.FC<CategoryStripProps> = ({ items, onSelect }) => {
+export const CategoryStrip: React.FC<CategoryStripProps> = ({ items, onSelect ,className}) => {
   return (
     <Strip>
       {items.map(item => (
         <Item key={item.id} onClick={() => onSelect?.(item.id)}>
-          <ImageWrapper>
+          <ImageWrapper className={className}>
             <Image src={item.imageSrc} alt={item.label} />
           </ImageWrapper>
           <Label>{item.label}</Label>
