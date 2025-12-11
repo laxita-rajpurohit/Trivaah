@@ -25,5 +25,9 @@ export const CTAWrapper = styled.div`
   gap: 20px;
   padding: 70px 0 60px 0;
   justify-content: center;
+  @media (max-width: 768px)
+  {
+  padding: 70px 10px 60px ;
+  }
 `;
 

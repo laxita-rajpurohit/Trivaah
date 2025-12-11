@@ -81,13 +81,14 @@ export const ctaCards = [
     align: "left" as const,
   },
   {
-    id: "luxe-edit",
+    id: "blouse-edit",
     backgroundImage:
-      "https://ik.imagekit.io/4sjmoqtje/tr:w-710,c-at_max/cdn/shop/files/2-editors-picks-blouse-india-420x568-desk-02-12-25.jpg?v=1764744357",
-    title: "",
-    offerText: "",
-    codeText: "",
-    align: "right" as const,
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1600&q=80",
+    title: "Glam-Ready Blouse Edit",
+    offerText: "Get 7% OFF*",
+    codeText: "Use Code: GLAM7",
+    buttonLabel: "Shop Now",
+    align: "left" as const,
   },
 ];
 
