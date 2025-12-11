@@ -9,12 +9,16 @@ const Wrapper = styled.div`
   padding: 8px 12px;
   border-radius: 6px;
   width: 250px;
-  margin:0 65px;
+  margin: 0 65px;
 
   @media (max-width: 768px) {
     width: 100%;
+    margin: 0;
+    padding: 5px;
   }
 `;
+
+
 
 const Input = styled.input`
   flex: 1;

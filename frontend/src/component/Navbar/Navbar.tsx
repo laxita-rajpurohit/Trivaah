@@ -4,33 +4,60 @@ import {
   NavWrapper,
   LeftMenu,
   RightMenu,
-  Icon
+  Icon,
+  LogoBox,
+  MobileTopRow,
+  MobileMenuIcon,
+  MobileIconRow,
+  MobileSearchRow,
+  MobileLogoBox
 } from "./Navbar.styled";
 
 import logo from "../../assets/trivaah-logo.svg";
 import user from "../../assets/icons/user.svg";
 import heart from "../../assets/icons/heart.svg";
 import cart from "../../assets/icons/cart.svg";
+import MobileMenu from "./MobileMenu";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   return (
-    <NavWrapper>
+    <><NavWrapper>
       <LeftMenu>
       </LeftMenu>
-      <div style={{ flex: 0, display: "flex", justifyContent: "center" }}>
-         <img src={logo} alt="Trivaah logo" width={180} height={'auto'} style={{maxWidth:'190px',minWidth:'144px',margin:'0 auto',height:'70px'}}/>
-        
-         </div>
+      <LogoBox>
+        <img src={logo} alt="Trivaah logo" />
+      </LogoBox>
 
       <RightMenu>
         <SearchBar />
-        {/* <Icon src={whatsapp} /> */}
-        <div style={{display:'flex',alignItems:'center',gap:'15px'}}>
-        <Icon src={user} />
-        <Icon src={heart} />
-        <Icon src={cart} />
+        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+          <Icon src={user} />
+          <Icon src={heart} />
+          <Icon src={cart} />
         </div>
       </RightMenu>
-    </NavWrapper>
+      {/* Mobile row 1: hamburger | logo | icons */}
+      <MobileTopRow>
+  <MobileMenuIcon onClick={() => setMobileOpen(true)}>≡</MobileMenuIcon>
+
+  <MobileLogoBox>
+    <img src={logo} alt="Trivaah logo" />
+  </MobileLogoBox>
+
+  <MobileIconRow>
+    <Icon src={user} />
+    <Icon src={heart} />
+    <Icon src={cart} />
+  </MobileIconRow>
+</MobileTopRow>
+
+
+      {/* Mobile row 2: search bar full width */}
+      <MobileSearchRow>
+        <SearchBar />
+      </MobileSearchRow>
+    </NavWrapper><MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} /></>
   );
 }

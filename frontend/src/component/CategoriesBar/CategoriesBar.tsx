@@ -1,107 +1,10 @@
 import MegaDropdown from "../Dropdown";
 import { useState, useRef } from "react";
 import { Bar, MenuItem, HoverArea } from "./CategoriesBar.styled";
+import { navCategories } from "../../data/navCategories";
 
 
-const data = [
-  { label: "Sale" },
-  { label: "Bestsellers" },
-  { label: "New Arrivals" },
-
-  {
-    label: "Sarees",
-    dropdown: [
-      {
-        heading: "By Type",
-        items: [
-          "Floral Sarees",
-          "Pastel Sarees",
-          "Sequins Sarees",
-          "Stonework Sarees",
-          "Printed Sarees",
-          "Heavy Sarees"
-        ]
-      },
-      {
-        heading: "By Material",
-        items: [
-          "Art Silk Sarees",
-          "Organza Sarees",
-          "Satin Sarees",
-          "Banarasi Sarees",
-          "Net Sarees",
-          "Crepe Sarees",
-          "Georgette Sarees",
-          "Pure Silk Sarees"
-        ]
-      },
-      {
-        heading: "By Colour",
-        items: [
-          "Black Sarees",
-          "Yellow Sarees",
-          "Red Sarees",
-          "Green Sarees",
-          "Pink Sarees",
-          "Blue Sarees",
-          "Wine Sarees"
-        ]
-      }
-    ]
-  },
-
-  {
-    label: "Lehengas",
-    dropdown: [
-      {
-        heading: "By Type",
-        items: [
-          "Semi Stitched Lehengas",
-          "Readymade Lehengas",
-        ],
-      },
-      {
-        heading: "By Material",
-        items: [
-          "Georgette Lehengas",
-          "Net Lehengas",
-          "Silk Lehengas",
-          "Velvet Lehengas",
-        ],
-      },
-      {
-        heading: "By Colour",
-        items: [
-          "Pink Lehengas",
-          "Green Lehengas",
-          "Blue Lehengas",
-          "Yellow Lehengas",
-        ],
-      },
-    ],
-  },
-
-  { label: "Dress Materials" },
-  { label: "Salwar Suits" },
-
-  {
-    label: "Occassions",
-    dropdown: [
-      {
-        heading: "By Occasion",
-        items: [
-          "Summer Sarees",
-          "Wedding Sarees",
-          "Engagement Sarees",
-          "Reception Sarees",
-          "Haldi Sarees",
-          "Festive Sarees",
-          "Party Wear Sarees",
-        ]
-      }
-    ]
-  }
-];
+const data = navCategories;
 
 export default function CategoriesBar() {
   const [hovered, setHovered] = useState<string | null>(null);

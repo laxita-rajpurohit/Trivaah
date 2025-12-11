@@ -37,6 +37,9 @@ export const Bar = styled.nav`
     background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.4)); /* fading black */
     box-shadow: 0 -2px 6px rgba(0,0,0,0.2); /* subtle shadow */
   }
+    @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const MenuItem = styled.div`
