@@ -45,19 +45,7 @@ export default function Navbar() {
   <MobileLogoBox>
     <img src={logo} alt="Trivaah logo" />
   </MobileLogoBox>
-
-  <MobileIconRow>
-    <Icon src={user} />
-    <Icon src={heart} />
-    <Icon src={cart} />
-  </MobileIconRow>
 </MobileTopRow>
-
-
-      {/* Mobile row 2: search bar full width */}
-      <MobileSearchRow>
-        <SearchBar />
-      </MobileSearchRow>
     </NavWrapper><MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} /></>
   );
 }

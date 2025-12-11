@@ -26,6 +26,7 @@ import {
   SectionTitleWithMargin,
   CTAWrapper,
 } from "./HomePage.styled";
+import MobileBottomBar from "../../component/Navbar/MobileBottomBar";
 
 export const HomePage = () => {
   return (
@@ -73,6 +74,7 @@ export const HomePage = () => {
         socialLinks={socialLinks}
         logoBackgroundSrc={TivaahFaviconLogo}
       />
+      <MobileBottomBar />
     </div>
   );
 };

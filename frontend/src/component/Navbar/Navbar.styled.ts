@@ -67,9 +67,9 @@ export const RightMenu = styled.div`
     align-items: center;
     justify-content: flex-end;
     gap: 16px;
-    
   }
 `;
+
 
 export const Icon = styled.img`
   width: 22px;
@@ -128,7 +128,7 @@ export const MobileLogoBox = styled.div`
   display: flex;
   justify-content: center;
   flex: 1;
-  margin-left: 62px;
+  margin-right: 35px;
 
   img {
     height: 50px;
@@ -140,3 +140,4 @@ export const MobileLogoBox = styled.div`
     
   }
 `;
+
