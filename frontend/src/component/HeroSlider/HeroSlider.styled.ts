@@ -1,13 +1,11 @@
-// src/component/HeroSlider/HeroSlider.styled.ts
+// HeroSlider.styled.ts
 import styled from "styled-components";
-
 
 export const HeroSection = styled.section`
   position: relative;
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
-
 `;
 
 export const SliderWrapper = styled.div`
@@ -15,27 +13,26 @@ export const SliderWrapper = styled.div`
   max-width: 100vw;
   overflow: hidden;
 
-  .swiper {
-    width: 100%;
-    max-width: 100vw;
-  }
-
-  .swiper-wrapper {
-    width: 100%;
-    max-width: 100vw;
-  }
-
+  .swiper,
+  .swiper-wrapper,
   .swiper-slide {
-    width: 100% !important;
+    width: 100%;
+    max-width: 100vw;
   }
-      @media (max-width: 768px) {
-margin-bottom: 45px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
   }
 `;
 
 export const SlideWrapper = styled.article`
   position: relative;
   width: 100%;
+
+  @media (max-width: 768px) {
+    /* fixed hero height for mobile */
+    height: 360px;
+  }
 `;
 
 export const SlideImage = styled.img`
@@ -44,6 +41,12 @@ export const SlideImage = styled.img`
   max-width: 100vw;
   height: auto;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 `;
 
 export const SlideOverlay = styled.div`
@@ -51,7 +54,7 @@ export const SlideOverlay = styled.div`
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;   /* vertical center */
   align-items: flex-end;
   padding-right: 7%;
   padding-left: 7%;
@@ -59,28 +62,33 @@ export const SlideOverlay = styled.div`
   pointer-events: none;
 
   @media (max-width: 768px) {
-    align-items: center;
-    text-align: center;
-    padding: 0 12%;
+    align-items: flex-start;   /* left-align text */
+    text-align: left;
+    justify-content: center;   /* center inside image */
+    padding: 0 20px;           /* no bottom push */
   }
 `;
 
 export const Badge = styled.p`
-  display: none; /* not visible in given screenshot */
+  display: none;
 `;
 
 export const Title = styled.h2`
   max-width: 520px;
   font-family: "Georgia", "Times New Roman", serif;
   font-weight: 400;
-  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
   line-height: 1.2;
   letter-spacing: 0.03em;
   text-align: right;
   margin: 0 0 1.6rem;
 
   @media (max-width: 768px) {
-    text-align: center;
+    max-width: 80%;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -90,18 +98,19 @@ export const Subtitle = styled.p`
   letter-spacing: 0.22em;
   font-size: 0.95rem;
   margin: 0 0 0.75rem;
-
-  /* allow manual line break for UNDER ₹2499 part */
   white-space: pre-line;
 
   @media (max-width: 768px) {
-    text-align: center;
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.5rem;
   }
 `;
 
 export const CTAButton = styled.a`
   pointer-events: auto;
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
 
   display: inline-flex;
   align-items: center;
@@ -129,7 +138,10 @@ export const CTAButton = styled.a`
   }
 
   @media (max-width: 768px) {
-    padding: 0.9rem 2.8rem;
-    font-size: 0.9rem;
+    margin-top: 0.7rem;
+    padding: 0.6rem 2.1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
   }
 `;
