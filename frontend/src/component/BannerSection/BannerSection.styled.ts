@@ -91,7 +91,7 @@ export const RightContent = styled.div<{ $bg?: string }>`
   text-align: left;
 
   @media (max-width: 900px) {
-    padding: 40px 28px;
+    padding: 40px 0px;
     align-items: center;
     text-align: center;
   }
